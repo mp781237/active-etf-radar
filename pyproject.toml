@@ -1,0 +1,10 @@
+[project]
+name = "active-etf-radar"
+version = "0.1.0"
+description = "Public holdings research pipeline for Taiwan active ETFs."
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

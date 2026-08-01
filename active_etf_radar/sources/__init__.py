@@ -1,0 +1,2 @@
+"""Public data source adapters."""
+

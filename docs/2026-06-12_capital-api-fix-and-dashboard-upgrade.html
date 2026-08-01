@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>active-etf-radar 交付經驗紀錄 2026-06-12｜群益 API 修復 + Dashboard 升級</title>
+<style>
+  :root{
+    --bg:#070f18; --panel:#0d1c2e; --panel2:#102742; --line:rgba(255,255,255,.10);
+    --text:#eef4fb; --muted:#9fb2c6; --amber:#ffd9a0; --amber2:#f4b15a;
+    --good:#5fd39a; --bad:#ff8a7a; --accent:#5aa0ff;
+    --shadow:0 20px 60px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(140% 120% at 0% 0%,#0e2238 0%,#070f18 55%) fixed;color:var(--text);
+    font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,Arial,sans-serif;line-height:1.7;}
+  .shell{max-width:980px;margin:0 auto;padding:40px 24px 80px;}
+  header{padding:34px 34px 30px;background:radial-gradient(135% 170% at 0% 0%,#16456f 0%,#0d2742 48%,#081726 100%);
+    border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;
+    background:rgba(255,255,255,.10);color:var(--amber);font-size:12px;font-weight:800;letter-spacing:.08em;}
+  h1{margin:16px 0 6px;font-size:30px;line-height:1.2;}
+  .sub{color:var(--muted);font-size:15px;max-width:720px;margin:0;}
+  .meta{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;}
+  .meta code{background:rgba(255,255,255,.08);color:var(--amber);padding:3px 9px;border-radius:7px;font-size:12.5px;}
+  h2{font-size:21px;margin:38px 0 4px;}
+  h2 .num{color:var(--amber2);font-variant-numeric:tabular-nums;margin-right:8px;}
+  h3{font-size:16px;margin:20px 0 6px;color:var(--amber);}
+  .lead{color:var(--muted);margin:4px 0 14px;font-size:14.5px;}
+  .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
+    border-radius:14px;padding:22px 24px;margin:14px 0;box-shadow:var(--shadow);}
+  .card.key{border-left:3px solid var(--amber2);}
+  p{margin:8px 0;}
+  ul{margin:8px 0;padding-left:22px;}
+  li{margin:6px 0;}
+  b,strong{color:#fff;}
+  code{background:rgba(255,255,255,.07);padding:1.5px 6px;border-radius:6px;font-size:13px;
+    font-family:"SFMono-Regular",Consolas,monospace;color:#cfe2ff;}
+  .good{color:var(--good);} .bad{color:var(--bad);} .amber{color:var(--amber);}
+  .lesson{background:rgba(255,217,160,.06);border:1px solid rgba(255,217,160,.22);border-radius:12px;
+    padding:14px 18px;margin:12px 0;}
+  .lesson .tag{display:inline-block;color:var(--amber);font-weight:800;font-size:12px;letter-spacing:.06em;margin-bottom:4px;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px;}
+  th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;}
+  th{color:var(--muted);font-size:12.5px;font-weight:700;}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:700;}
+  .pill.ok{background:rgba(95,211,154,.14);color:var(--good);}
+  .flow{display:grid;gap:8px;margin:10px 0;}
+  .flow div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:9px;padding:9px 13px;font-size:14px;}
+  .flow .step{color:var(--amber2);font-weight:800;margin-right:8px;}
+  footer{margin-top:40px;color:var(--muted);font-size:12.5px;text-align:center;}
+  hr{border:none;border-top:1px solid var(--line);margin:30px 0;}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <header>
+    <span class="eyebrow">交付經驗紀錄 · 重要經驗</span>
+    <h1>active-etf-radar：群益來源 API 修復 + Dashboard 表達模式升級</h1>
+    <p class="sub">一次例行刷新觸發的兩件事——修好因網站改版而壞掉的群益資料來源，並把只會看「單點」的 dashboard 升級成會說「趨勢」與「結論」。</p>
+    <div class="meta">
+      <code>2026-06-12</code>
+      <code>專案：active-etf-radar</code>
+      <code>非交易系統 · 公開資料研究</code>
+      <code>主控：Claude Code</code>
+    </div>
+  </header>
+
+  <h2><span class="num">00</span>一句話總結</h2>
+  <div class="card key">
+    <p>例行刷新 7 檔主動 ETF 時發現群益兩檔抓取失敗。診斷出官網改成 JS 渲染、用 Playwright 攔到底層 JSON API 修好；過程順帶抓到一個舊有的資料品質 bug（美股基金持股長期抓不全）。接著把 dashboard 從「快照式」升級成「趨勢式」：加趨勢線、今日結論、事件強度排序、深色 hero。</p>
+  </div>
+
+  <h2><span class="num">01</span>背景</h2>
+  <div class="card">
+    <p>今天是回專案的第一步：依 <code>START.md</code> 刷新全部 7 檔主動式 ETF 的最新公開持股。資料距上次（6/8~6/9）已隔 3~4 天。刷新時 EZMoney 三檔、復華、第一金都正常，<b>群益兩檔（00992A、00997A）報錯</b>：<code>群益申購買回清單缺少資料日期</code>。</p>
+  </div>
+
+  <h2><span class="num">02</span>問題一：群益官網改 JS 渲染（核心修復）</h2>
+  <p class="lead">症狀像「解析 bug」，根因其實是「抓到的頁面內容變了」。</p>
+  <div class="card">
+    <div class="flow">
+      <div><span class="step">症狀</span><code>fetch-capital</code> 丟 <code>缺少資料日期</code>，6/9 還正常。</div>
+      <div><span class="step">比對</span>今天的 HTML 只有 263KB（6/9 是 417KB），<b>完全沒有</b> <code>buyback-stocks-section</code>、沒有任何日期、沒有持股關鍵字，只有 <code>noscript</code>。</div>
+      <div><span class="step">判定</span>不是解析 bug——群益官網改成<b>前端 JS 渲染</b>，<code>urllib</code> 抓到的是空殼頁。</div>
+      <div><span class="step">找 API</span>用 Playwright 載入頁面、攔 network requests，找到資料端點。</div>
+      <div><span class="step">修法</span>adapter 從「爬 HTML」改成「打 JSON API」（不需 JS）。</div>
+    </div>
+    <h3>底層 API</h3>
+    <ul>
+      <li><code>POST https://www.capitalfund.com.tw/CFWeb/api/etf/buyback</code></li>
+      <li>body：<code>{"fundId":"&lt;product_id&gt;","date":null}</code></li>
+      <li>回傳：<code>data.pcf</code>（含 <code>date1 / date2 / exchangeDesc</code>）+ <code>data.stocks[]</code>（<code>stocNo / stocName / weight / weightRound / share</code>）</li>
+      <li>資料日沿用舊規則：取 <code>exchangeDesc</code> 括號內的匯率日（等於 <code>date2</code>），與歷史 CSV 一致。</li>
+    </ul>
+    <p>raw 改存 <code>data/raw/capital_buyback/*.json</code>；dataclass 欄位 <code>raw_html_path</code> 改名 <code>raw_path</code>（cli.py 同步）。</p>
+  </div>
+
+  <div class="lesson">
+    <span class="tag">經驗 1 · SPA 改版的標準解法</span>
+    <p>當一個原本能爬的網站突然回傳空殼／少很多內容、且出現 <code>noscript</code>，先別改 parser——<b>用 Playwright 攔 network requests 找底層 API，直接打 JSON 端點</b>。比硬解 JS 或上 headless 渲染更穩、更快、更好維護。</p>
+  </div>
+
+  <h2><span class="num">03</span>問題二：美股基金持股長期抓不全（順帶發現）</h2>
+  <div class="card">
+    <p>改用 API 後，<b>00997A（群益美國增長）</b>的持股數對不上歷史：</p>
+    <table>
+      <thead><tr><th>版本</th><th class="n">持股數</th><th class="n">權重合計</th></tr></thead>
+      <tbody>
+        <tr><td>舊 HTML parser</td><td class="n bad">10 檔</td><td class="n bad">40.9%</td></tr>
+        <tr><td>新 JSON API</td><td class="n good">53 檔</td><td class="n good">93.16%</td></tr>
+      </tbody>
+    </table>
+    <p>原因：舊版我一度把明細過濾成「只留台股 4 碼代號」，但這檔含<b>美股、日股、韓股</b>（<code>MU US</code>、<code>4062 JP</code>、<code>009150 KS</code>），整批被砍掉。已改成「有代號＋名稱＋權重就收」；台股 4 碼過濾<b>只用在台股日報排行那一層</b>，不可用在持股明細層。</p>
+    <p class="amber">副作用：換來源那一輪，00997A 的「持股變化／異常加碼」會出現一次性假新增（約 43 檔），<b>下一輪快照自動修正</b>。</p>
+  </div>
+
+  <div class="lesson">
+    <span class="tag">經驗 2 · 過濾條件要分層</span>
+    <p>「只留台股 4 碼代號」是<b>呈現層（台股排行）</b>的規則，不是<b>資料層（持股明細）</b>的規則。把展示用的過濾誤套到原始資料抽取，會在含外股的標的上靜默漏資料。資料層原則：盡量全收，過濾留到呈現層做。</p>
+  </div>
+
+  <h2><span class="num">04</span>升級：Dashboard 表達模式（快照 → 趨勢）</h2>
+  <p class="lead">最大缺口：已累積 15 個資料日快照，但畫面只表達「最新 vs 前一日」單點，0 條趨勢線。</p>
+  <div class="card">
+    <h3>① 趨勢線（sparkline）</h3>
+    <ul>
+      <li>共識持股總表：每列加「近期股數趨勢」，畫該股票在<b>所有持有基金的總股數</b>、近 12 個資料日走勢（聯合資料日 forward-fill），漲綠跌紅。</li>
+      <li>單基金完整持股表：用<b>該基金自己</b>的股數序列，看單一基金對個股的加減動作。</li>
+      <li>異常加碼卡：每筆加小尺寸趨勢線。</li>
+    </ul>
+    <h3>② 今日結論橫幅</h3>
+    <p>頁面頂端一句白話：今天幾檔新買進進共識／首次納入／異常加碼／同向加股，5 秒判讀「今天有沒有事」。</p>
+    <h3>③ 事件卡強度排序</h3>
+    <p>四張事件卡內容都「最強在最上面」，每張卡第一筆加左側強調條與淡底，眼睛直接落在最該看的那檔。</p>
+    <h3>④ 第一屏深色 NASA hero</h3>
+    <p>標題列＋今日結論做成一整塊深藍漸層 hero（象牙白字＋琥珀數字）；下面查表區維持淺色——密集表格淺色比較好讀，深色只用在 hero。</p>
+  </div>
+
+  <div class="lesson">
+    <span class="tag">經驗 3 · 既有資料先榨乾再加功能</span>
+    <p>升級前先問「現有資料還有哪些沒被表達出來」。這次 15 天快照早就躺在 <code>data/processed/</code>，把它從單點變成趨勢線，不用重抓任何資料就是體驗最大的躍升。先用足現有資料，再談新資料來源。</p>
+  </div>
+
+  <h2><span class="num">05</span>驗證與環境踩坑</h2>
+  <div class="card">
+    <ul>
+      <li><b>視覺驗證</b>：<code>file://</code> 被 Playwright MCP 擋（安全政策）。解法：起本機 <code>python -m http.server</code> → 用 <code>http://127.0.0.1</code> 載入 → 截圖 → 關 server。</li>
+      <li><b>輸出亂碼</b>：PowerShell cp950 顯示中文會亂；跑前設 <code>PYTHONIOENCODING=utf-8</code>，資料本身正常。</li>
+      <li><b>iCloud 暫存</b>：Playwright MCP 會在 iCloud 根目錄留 <code>.playwright-mcp/</code>（console log + page 快照）；<code>py_compile</code> 會寫 <code>__pycache__</code>。屬暫存 churn，用完即清。</li>
+    </ul>
+  </div>
+
+  <h2><span class="num">06</span>本次資料狀態（7 檔全刷新）</h2>
+  <div class="card">
+    <table>
+      <thead><tr><th>ETF</th><th>名稱</th><th class="n">持股</th><th class="n">權重合計</th><th>資料日</th></tr></thead>
+      <tbody>
+        <tr><td>00403A</td><td>統一升級50</td><td class="n">50</td><td class="n">88.81%</td><td>6-11</td></tr>
+        <tr><td>00981A</td><td>統一台股增長</td><td class="n">50</td><td class="n">96.05%</td><td>6-11</td></tr>
+        <tr><td>00988A</td><td>統一全球創新</td><td class="n">50</td><td class="n">95.17%</td><td>6-11</td></tr>
+        <tr><td>00991A</td><td>復華未來50</td><td class="n">50</td><td class="n">96.98%</td><td>6-11</td></tr>
+        <tr><td>00992A</td><td>群益台灣科技創新</td><td class="n">40</td><td class="n">95.51%</td><td>6-11</td></tr>
+        <tr><td>00994A</td><td>第一金台股優</td><td class="n">37</td><td class="n">91.22%</td><td>6-11</td></tr>
+        <tr><td>00997A</td><td>群益美國增長</td><td class="n">53</td><td class="n">93.16%</td><td>6-10</td></tr>
+      </tbody>
+    </table>
+    <p><span class="pill ok">已驗證</span> 全 7 檔刷新、dashboard 重建、深色 hero／趨勢線／今日結論／強度排序視覺截圖確認、暫存清理完成。</p>
+  </div>
+
+  <h2><span class="num">07</span>改動檔案</h2>
+  <div class="card">
+    <ul>
+      <li><code>active_etf_radar/sources/capital_buyback.py</code> — 改打 JSON API、raw 存 JSON、明細不過濾外股。</li>
+      <li><code>active_etf_radar/cli.py</code> — <code>raw_path</code> 欄位 + 標籤同步。</li>
+      <li><code>active_etf_radar/dashboard.py</code> — 新增 <code>_build_cross_fund_share_series</code>、<code>_build_per_fund_share_series</code>、<code>_render_sparkline</code>、<code>_build_today_summary</code>；共識表／單基金表／異常卡接趨勢線；事件強度排序；深色 hero。</li>
+      <li><code>START.md</code> — 群益來源改 API 的備註。</li>
+    </ul>
+    <p class="lead">註：<code>_render_legacy_html</code> 是未被呼叫的死碼，僅 <code>_render_html</code> 會渲染。</p>
+  </div>
+
+  <h2><span class="num">08</span>後續可做（未啟動）</h2>
+  <div class="card">
+    <ul>
+      <li>事件卡之間用統一強度分數，把「全站最強事件」浮到雷達最上面。</li>
+      <li>個股產業／主題標籤，看跨基金的「資金流向哪個族群」。</li>
+      <li>共識股加「持有基金數隨時間」的趨勢（目前是總股數趨勢）。</li>
+    </ul>
+  </div>
+
+  <footer>active-etf-radar · 公開資料研究工具 · 非交易系統 · 不產生買賣／停損／停利訊號</footer>
+</div>
+</body>
+</html>
