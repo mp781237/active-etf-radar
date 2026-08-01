@@ -1,0 +1,114 @@
+name: 手動測試公開資料來源
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUTF8: "1"
+      TZ: Asia/Taipei
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Run tests
+        run: python -B -m unittest discover -s tests -v
+
+      - name: Test EZMoney funds
+        id: ezmoney
+        continue-on-error: true
+        run: python -B -m active_etf_radar refresh-ezmoney --allow-insecure-tls --skip-dashboard
+
+      - name: Test FHTrust 00991A
+        id: fhtrust
+        continue-on-error: true
+        shell: bash
+        run: |
+          found=0
+          for offset in 0 1 2 3 4; do
+            query_date="$(date -d "$offset day ago" +%F)"
+            if python -B -m active_etf_radar fetch-fhtrust \
+              --fund-code ETF23 --etf-code 00991A --date "$query_date"; then
+              found=1
+              break
+            fi
+          done
+          test "$found" -eq 1
+
+      - name: Test Capital 00992A
+        id: capital_00992a
+        continue-on-error: true
+        run: python -B -m active_etf_radar fetch-capital --product-id 500 --etf-code 00992A
+
+      - name: Test Capital 00997A
+        id: capital_00997a
+        continue-on-error: true
+        run: python -B -m active_etf_radar fetch-capital --product-id 502 --etf-code 00997A
+
+      - name: Test First Securities 00994A
+        id: firstsitc
+        continue-on-error: true
+        run: python -B -m active_etf_radar fetch-firstsitc --fund-id 182 --etf-code 00994A --allow-insecure-tls
+
+      - name: Build dashboard
+        id: dashboard
+        if: always()
+        continue-on-error: true
+        run: python -B -m active_etf_radar build-dashboard
+
+      - name: Write source summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## 公開資料來源測試"
+            echo ""
+            echo "| 來源 | 結果 |"
+            echo "| --- | --- |"
+            echo "| EZMoney | ${{ steps.ezmoney.outcome }} |"
+            echo "| 復華 00991A | ${{ steps.fhtrust.outcome }} |"
+            echo "| 群益 00992A | ${{ steps.capital_00992a.outcome }} |"
+            echo "| 群益 00997A | ${{ steps.capital_00997a.outcome }} |"
+            echo "| 第一金 00994A | ${{ steps.firstsitc.outcome }} |"
+            echo "| 儀表板 | ${{ steps.dashboard.outcome }} |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: active-etf-radar-source-test
+          path: |
+            reports/
+            data/raw/
+          retention-days: 7
+
+      - name: Fail when a source is unavailable
+        if: always()
+        shell: bash
+        run: |
+          outcomes=(
+            "${{ steps.ezmoney.outcome }}"
+            "${{ steps.fhtrust.outcome }}"
+            "${{ steps.capital_00992a.outcome }}"
+            "${{ steps.capital_00997a.outcome }}"
+            "${{ steps.firstsitc.outcome }}"
+            "${{ steps.dashboard.outcome }}"
+          )
+          for outcome in "${outcomes[@]}"; do
+            test "$outcome" = "success" || exit 1
+          done
+
