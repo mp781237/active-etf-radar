@@ -1,10 +1,13 @@
 # active-etf-radar
 
-## GitHub 雲端來源測試
+## GitHub 自動更新
 
-專案包含 `.github/workflows/manual-source-test.yml`，可從 GitHub Actions 頁面手動執行，確認 GitHub 雲端主機能否連線至各投信公開資料來源。測試會逐一執行所有來源、重建儀表板，並在工作摘要列出每個來源結果。
+專案包含兩個 GitHub Actions 工作流程：
 
-這個工作流程目前不包含定時排程、不會提交抓取結果，也不會發布 GitHub Pages。確認全部來源在 GitHub runner 通過後，再啟用每日更新與 Pages 部署。
+- `.github/workflows/manual-source-test.yml`：手動測試所有公開資料來源，不提交測試結果。
+- `.github/workflows/daily-update.yml`：台北時間平日 `21:30` 更新持股、重建儀表板、提交 `data/` 與 `reports/`，並發布 GitHub Pages。
+
+每個投信來源獨立執行。單一來源暫時無法連線時，其他來源仍可更新，儀表板會沿用該基金既有資料，Actions 工作摘要則會標示失敗來源。自動化只操作這個 repository 內的公開資料與報告。
 
 主動式 ETF 公開持股研究工具。
 

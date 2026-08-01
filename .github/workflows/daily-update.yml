@@ -1,0 +1,139 @@
+name: 每日更新主動式 ETF 雷達
+
+on:
+  schedule:
+    # GitHub Actions 使用 UTC；13:30 UTC 為台北時間平日 21:30。
+    - cron: "30 13 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: active-etf-radar-daily
+  cancel-in-progress: false
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUTF8: "1"
+      TZ: Asia/Taipei
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Run tests
+        run: python -B -m unittest discover -s tests -v
+
+      - name: Update EZMoney funds
+        id: ezmoney
+        continue-on-error: true
+        run: python -B -m active_etf_radar refresh-ezmoney --allow-insecure-tls --skip-dashboard
+
+      - name: Update FHTrust 00991A
+        id: fhtrust
+        continue-on-error: true
+        shell: bash
+        run: |
+          found=0
+          for offset in 0 1 2 3 4; do
+            query_date="$(date -d "$offset day ago" +%F)"
+            if python -B -m active_etf_radar fetch-fhtrust \
+              --fund-code ETF23 --etf-code 00991A --date "$query_date"; then
+              found=1
+              break
+            fi
+          done
+          test "$found" -eq 1
+
+      - name: Update Capital 00992A
+        id: capital_00992a
+        continue-on-error: true
+        run: python -B -m active_etf_radar fetch-capital --product-id 500 --etf-code 00992A
+
+      - name: Update Capital 00997A
+        id: capital_00997a
+        continue-on-error: true
+        run: python -B -m active_etf_radar fetch-capital --product-id 502 --etf-code 00997A
+
+      - name: Update First Securities 00994A
+        id: firstsitc
+        continue-on-error: true
+        run: python -B -m active_etf_radar fetch-firstsitc --fund-id 182 --etf-code 00994A --allow-insecure-tls
+
+      - name: Build dashboard
+        id: dashboard
+        run: python -B -m active_etf_radar build-dashboard
+
+      - name: Commit updated public data
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data reports
+          if git diff --cached --quiet; then
+            echo "沒有新的公開資料需要提交。"
+          else
+            git commit -m "自動更新主動式 ETF 公開持股資料"
+            git push
+          fi
+
+      - name: Prepare Pages
+        run: cp reports/dashboard.html reports/index.html
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: reports
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Write update summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## 每日更新結果"
+            echo ""
+            echo "| 來源 | 結果 |"
+            echo "| --- | --- |"
+            echo "| EZMoney | ${{ steps.ezmoney.outcome }} |"
+            echo "| 復華 00991A | ${{ steps.fhtrust.outcome }} |"
+            echo "| 群益 00992A | ${{ steps.capital_00992a.outcome }} |"
+            echo "| 群益 00997A | ${{ steps.capital_00997a.outcome }} |"
+            echo "| 第一金 00994A | ${{ steps.firstsitc.outcome }} |"
+            echo "| 儀表板 | ${{ steps.dashboard.outcome }} |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          outcomes=(
+            "${{ steps.ezmoney.outcome }}"
+            "${{ steps.fhtrust.outcome }}"
+            "${{ steps.capital_00992a.outcome }}"
+            "${{ steps.capital_00997a.outcome }}"
+            "${{ steps.firstsitc.outcome }}"
+          )
+          for outcome in "${outcomes[@]}"; do
+            if [ "$outcome" != "success" ]; then
+              echo "::warning::至少一個公開資料來源本次更新失敗，儀表板沿用既有資料。"
+              break
+            fi
+          done
