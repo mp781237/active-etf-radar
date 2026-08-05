@@ -2,8 +2,8 @@ name: 每日更新主動式 ETF 雷達
 
 on:
   schedule:
-    # GitHub Actions 使用 UTC；13:30 UTC 為台北時間平日 21:30。
-    - cron: "30 13 * * 1-5"
+    # GitHub Actions 使用 UTC；13:00 UTC 為台北時間平日 21:00。
+    - cron: "0 13 * * 1-5"
   workflow_dispatch:
 
 permissions:
