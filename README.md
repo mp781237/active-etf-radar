@@ -5,7 +5,7 @@
 專案包含兩個 GitHub Actions 工作流程：
 
 - `.github/workflows/manual-source-test.yml`：手動測試所有公開資料來源，不提交測試結果。
-- `.github/workflows/daily-update.yml`：台北時間平日 `21:00` 更新持股、重建儀表板、提交 `data/` 與 `reports/`，並發布 GitHub Pages。
+- `.github/workflows/daily-update.yml`：台北時間平日 `19:17` 排程更新，避開 GitHub Actions 整點壅塞；完成後重建儀表板、提交 `data/` 與 `reports/`，並發布 GitHub Pages。
 
 每個投信來源獨立執行。單一來源暫時無法連線時，其他來源仍可更新，儀表板會沿用該基金既有資料，Actions 工作摘要則會標示失敗來源。自動化只操作這個 repository 內的公開資料與報告。
 
