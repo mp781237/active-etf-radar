@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import csv
+import http.client
 import json
 import re
 import ssl
+import time as time_module
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -15,6 +17,8 @@ from typing import Any
 TWSE_URL = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX"
 TPEX_URL = "https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes"
 YAHOO_URL = "https://query1.finance.yahoo.com/v8/finance/chart"
+DOWNLOAD_ATTEMPTS = 3
+RETRY_DELAY_SECONDS = 1
 PRICE_FIELDS = [
     "stock_code",
     "event_date",
@@ -27,6 +31,10 @@ PRICE_FIELDS = [
     "source_url",
     "fetched_at",
 ]
+
+
+class MarketPriceUnavailable(RuntimeError):
+    pass
 
 
 def refresh_event_market_prices(
@@ -72,13 +80,13 @@ def _fetch_taiwan_prices(
     rows: list[dict[str, Any]] = []
 
     twse_url = f"{TWSE_URL}?{urllib.parse.urlencode({'date': event_date.replace('-', ''), 'type': 'ALLBUT0999', 'response': 'json'})}"
-    twse_data = _load_or_fetch_json(raw_dir / f"twse_{event_date}.json", twse_url)
+    twse_data = _load_market_json_or_empty(raw_dir / f"twse_{event_date}.json", twse_url)
     rows.extend(_parse_twse_prices(twse_data, event_date, target_codes, twse_url, fetched_at))
 
     remaining = target_codes - {str(row["stock_code"]) for row in rows}
     if remaining:
         tpex_url = f"{TPEX_URL}?{urllib.parse.urlencode({'date': event_date.replace('-', '/'), 'id': '', 'response': 'json'})}"
-        tpex_data = _load_or_fetch_json(raw_dir / f"tpex_{event_date}.json", tpex_url)
+        tpex_data = _load_market_json_or_empty(raw_dir / f"tpex_{event_date}.json", tpex_url)
         rows.extend(_parse_tpex_prices(tpex_data, event_date, remaining, tpex_url, fetched_at))
     return rows
 
@@ -101,7 +109,7 @@ def _fetch_yahoo_price(
     url = f"{YAHOO_URL}/{urllib.parse.quote(yahoo_symbol)}?{params}"
     raw_name = re.sub(r"[^A-Za-z0-9._-]+", "_", yahoo_symbol)
     raw_path = project_root / "data" / "raw" / "market_prices" / f"yahoo_{raw_name}_{event_date}.json"
-    data = _load_or_fetch_json(raw_path, url)
+    data = _load_market_json_or_empty(raw_path, url)
     return _parse_yahoo_price(data, stock_code, event_date, market, url, fetched_at)
 
 
@@ -247,17 +255,39 @@ def _load_or_fetch_json(path: Path, url: str) -> dict[str, Any]:
     if path.exists():
         return json.loads(path.read_text(encoding="utf-8"))
     request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 active-etf-radar/0.1"})
+    last_error: Exception | None = None
+    for attempt in range(DOWNLOAD_ATTEMPTS):
+        try:
+            try:
+                response = urllib.request.urlopen(request, timeout=30)
+            except urllib.error.URLError as exc:
+                if not isinstance(exc.reason, ssl.SSLCertVerificationError):
+                    raise
+                response = urllib.request.urlopen(request, timeout=30, context=ssl._create_unverified_context())
+            with response:
+                data = json.loads(response.read().decode("utf-8"))
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8", newline="")
+            return data
+        except (
+            urllib.error.URLError,
+            TimeoutError,
+            ConnectionError,
+            http.client.HTTPException,
+            json.JSONDecodeError,
+        ) as exc:
+            last_error = exc
+            if attempt + 1 < DOWNLOAD_ATTEMPTS:
+                time_module.sleep(RETRY_DELAY_SECONDS)
+    raise MarketPriceUnavailable(f"股價資料下載失敗（重試 {DOWNLOAD_ATTEMPTS} 次）：{url}") from last_error
+
+
+def _load_market_json_or_empty(path: Path, url: str) -> dict[str, Any]:
     try:
-        response = urllib.request.urlopen(request, timeout=30)
-    except urllib.error.URLError as exc:
-        if not isinstance(exc.reason, ssl.SSLCertVerificationError):
-            raise
-        response = urllib.request.urlopen(request, timeout=30, context=ssl._create_unverified_context())
-    with response:
-        data = json.loads(response.read().decode("utf-8"))
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8", newline="")
-    return data
+        return _load_or_fetch_json(path, url)
+    except MarketPriceUnavailable as exc:
+        print(f"警告：{exc}")
+        return {}
 
 
 def _read_price_cache(path: Path) -> dict[tuple[str, str], dict[str, Any]]:

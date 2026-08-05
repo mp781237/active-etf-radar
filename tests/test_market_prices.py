@@ -1,8 +1,15 @@
 from __future__ import annotations
 
+import http.client
+import tempfile
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
 from active_etf_radar.market_prices import (
+    MarketPriceUnavailable,
+    _load_market_json_or_empty,
+    _load_or_fetch_json,
     _parse_tpex_prices,
     _parse_twse_prices,
     _parse_yahoo_price,
@@ -11,6 +18,46 @@ from active_etf_radar.market_prices import (
 
 
 class MarketPriceTests(unittest.TestCase):
+    def test_load_json_retries_incomplete_response(self) -> None:
+        class Response:
+            def __init__(self, payload: bytes = b"", error: Exception | None = None) -> None:
+                self.payload = payload
+                self.error = error
+
+            def __enter__(self) -> "Response":
+                return self
+
+            def __exit__(self, *_args: object) -> None:
+                return None
+
+            def read(self) -> bytes:
+                if self.error:
+                    raise self.error
+                return self.payload
+
+        responses = [
+            Response(error=http.client.IncompleteRead(b"partial")),
+            Response(payload=b'{"ok": true}'),
+        ]
+        with tempfile.TemporaryDirectory() as tmpdir:
+            output = Path(tmpdir) / "price.json"
+            with (
+                patch("active_etf_radar.market_prices.urllib.request.urlopen", side_effect=responses) as urlopen,
+                patch("active_etf_radar.market_prices.time_module.sleep"),
+            ):
+                data = _load_or_fetch_json(output, "https://example.test/prices")
+
+        self.assertEqual(data, {"ok": True})
+        self.assertEqual(urlopen.call_count, 2)
+
+    def test_unavailable_market_price_returns_empty_data(self) -> None:
+        with patch(
+            "active_etf_radar.market_prices._load_or_fetch_json",
+            side_effect=MarketPriceUnavailable("暫時失敗"),
+        ):
+            data = _load_market_json_or_empty(Path("unused.json"), "https://example.test/prices")
+        self.assertEqual(data, {})
+
     def test_parse_twse_signed_change(self) -> None:
         data = {
             "tables": [
