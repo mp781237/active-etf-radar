@@ -976,6 +976,43 @@ def _render_table_row(row: dict[str, Any], rank: int, series: list[float] | None
     """
 
 
+def _render_derivatives_section(rows: list[dict[str, Any]]) -> str:
+    if not rows:
+        return ""
+
+    body = "\n".join(
+        f"""
+          <tr>
+            <td><strong>{_esc(str(row.get("stock_name", "")))}</strong><div class="table-code">{_esc(str(row.get("stock_code", "")))}</div></td>
+            <td>{_esc(str(row.get("position", "")) or "-")}</td>
+            <td>{_esc(str(row.get("contract_month", "")) or "-")}</td>
+            <td class="num">{_format_number(row["shares_num"])}</td>
+            <td class="num">{_format_number(row["market_value_num"])}</td>
+            <td class="num">{row["weight_num"]:.2f}%</td>
+            <td>{_esc(str(row.get("currency", "")))}</td>
+          </tr>
+        """
+        for row in rows
+    )
+    total_weight = sum(row["weight_num"] for row in rows)
+    return f"""
+      <section class="card" style="margin-top:18px;">
+        <div class="toolbar">
+          <div>
+            <h2 style="margin:0;">期貨部位</h2>
+            <div class="kpi-note">與股票持股分開列示，不納入股票共識、加減碼與連續增持計算；合計淨值占比 {total_weight:.2f}%</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>契約</th><th>部位</th><th>月份</th><th class="num">口數</th><th class="num">名目金額</th><th class="num">淨值占比</th><th>幣別</th></tr></thead>
+            <tbody>{body}</tbody>
+          </table>
+        </div>
+      </section>
+    """
+
+
 def _render_fund_tab(view: dict[str, Any], active_etf_code: str) -> str:
     first = view["rows"][0]
     etf_code = str(first.get("etf_code", ""))
@@ -990,8 +1027,12 @@ def _render_fund_tab(view: dict[str, Any], active_etf_code: str) -> str:
 
 
 def _render_fund_detail_panel(view: dict[str, Any], active_etf_code: str) -> str:
-    rows = view["rows"]
-    first = rows[0]
+    all_rows = view["rows"]
+    first = all_rows[0]
+    rows = [row for row in all_rows if (row.get("asset_code") or "ST") == "ST"]
+    derivative_rows = [row for row in all_rows if row.get("asset_code") == "GD"]
+    if not rows:
+        return ""
     etf_code = str(first.get("etf_code", ""))
     fund_code = str(first.get("fund_code", ""))
     fetched_at = str(first.get("fetched_at", ""))
@@ -1024,6 +1065,7 @@ def _render_fund_detail_panel(view: dict[str, Any], active_etf_code: str) -> str
     )
     streaks_section = _render_streaks_section(streaks, streaks_path, snapshot_dates)
     changes_section = _render_changes_section(changes, changes_path)
+    derivatives_section = _render_derivatives_section(derivative_rows)
     panel_class = "fund-panel active" if etf_code == active_etf_code else "fund-panel"
     hidden = "" if etf_code == active_etf_code else " hidden"
     table_id = f"holdingsTable-{etf_code}"
@@ -1067,6 +1109,7 @@ def _render_fund_detail_panel(view: dict[str, Any], active_etf_code: str) -> str
 
         {streaks_section}
         {changes_section}
+        {derivatives_section}
 
         <section class="card" style="margin-top:18px;">
           <div class="toolbar">

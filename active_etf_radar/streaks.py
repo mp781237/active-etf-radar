@@ -120,7 +120,11 @@ def load_snapshots(project_root: Path, etf_code: str | None = None) -> list[Snap
                 fund_code=str(rows[0].get("fund_code", "")).strip(),
                 as_of_date=as_of_date,
                 path=path,
-                rows_by_stock={row["stock_code"]: row for row in rows if row.get("stock_code")},
+                rows_by_stock={
+                    row["stock_code"]: row
+                    for row in rows
+                    if row.get("stock_code") and (row.get("asset_code") or "ST") == "ST"
+                },
             )
         )
     return snapshots

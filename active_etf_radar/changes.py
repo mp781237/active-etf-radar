@@ -88,7 +88,11 @@ def write_changes_csv(changes: list[dict[str, Any]], output_path: Path) -> Path:
 def _read_by_stock(path: Path) -> dict[str, dict[str, str]]:
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         rows = list(csv.DictReader(file))
-    return {row["stock_code"]: row for row in rows}
+    return {
+        row["stock_code"]: row
+        for row in rows
+        if row.get("stock_code") and (row.get("asset_code") or "ST") == "ST"
+    }
 
 
 def _num(row: dict[str, str] | None, key: str) -> float:

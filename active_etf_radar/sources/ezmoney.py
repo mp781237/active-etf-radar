@@ -39,7 +39,7 @@ def fetch_ezmoney_holdings(
     raw_path = _write_raw_html(output_root, fund_code, fetched_at, html_text)
     assets = _extract_json_data(html_text, "DataAsset")
     fund = _extract_fund_metadata(html_text)
-    rows = _normalize_stock_rows(
+    rows = _normalize_asset_rows(
         assets=assets,
         fund=fund,
         fund_code=fund_code,
@@ -52,8 +52,8 @@ def fetch_ezmoney_holdings(
     return FetchResult(
         etf_code=etf_code,
         fund_code=fund_code,
-        row_count=len(rows),
-        weight_sum=sum(float(row["weight_pct"]) for row in rows),
+        row_count=sum(1 for row in rows if row["asset_code"] == "ST"),
+        weight_sum=sum(float(row["weight_pct"]) for row in rows if row["asset_code"] == "ST"),
         raw_html_path=raw_path,
         csv_path=csv_path,
     )
@@ -119,7 +119,7 @@ def _extract_json_like_string(text: str, key: str) -> str:
     return match.group("value") if match else ""
 
 
-def _normalize_stock_rows(
+def _normalize_asset_rows(
     assets: list[dict[str, Any]],
     fund: dict[str, Any],
     fund_code: str,
@@ -138,27 +138,31 @@ def _normalize_stock_rows(
         )
 
     edit_datetime = str(stock_asset.get("EditDate", "")).strip()
-    as_of_datetime = edit_datetime[:10] or stock_asset.get("EndDate", "")
     rows: list[dict[str, Any]] = []
-    for detail in stock_asset.get("Details") or []:
-        rows.append(
-            {
-                "fetched_at": fetched_at.isoformat(timespec="seconds"),
-                "source": "ezmoney",
-                "source_url": source_url,
-                "fund_code": fund_code,
-                "etf_code": etf_code,
-                "as_of_datetime": as_of_datetime,
-                "edit_datetime": edit_datetime,
-                "asset_code": detail.get("AssetCode", ""),
-                "stock_code": detail.get("DetailCode", ""),
-                "stock_name": detail.get("DetailName", ""),
-                "currency": detail.get("MoneyType", ""),
-                "shares": detail.get("Share", ""),
-                "market_value": detail.get("Amount", ""),
-                "weight_pct": detail.get("NavRate", ""),
-            }
-        )
+    for asset in assets:
+        asset_edit_datetime = str(asset.get("EditDate", "")).strip() or edit_datetime
+        for detail in asset.get("Details") or []:
+            asset_code = str(detail.get("AssetCode") or asset.get("AssetCode") or "").strip()
+            rows.append(
+                {
+                    "fetched_at": fetched_at.isoformat(timespec="seconds"),
+                    "source": "ezmoney",
+                    "source_url": source_url,
+                    "fund_code": fund_code,
+                    "etf_code": etf_code,
+                    "as_of_datetime": str(detail.get("TranDate") or asset.get("EndDate") or asset_edit_datetime)[:10],
+                    "edit_datetime": str(detail.get("EditTime") or asset_edit_datetime),
+                    "asset_code": asset_code,
+                    "stock_code": detail.get("DetailCode", ""),
+                    "stock_name": detail.get("DetailName", ""),
+                    "currency": detail.get("MoneyType", ""),
+                    "shares": detail.get("Share", ""),
+                    "market_value": detail.get("Amount", ""),
+                    "weight_pct": detail.get("NavRate", ""),
+                    "position": str(detail.get("Position", "")).strip(),
+                    "contract_month": detail.get("MTH", ""),
+                }
+            )
 
     rows.sort(key=lambda row: float(row["weight_pct"] or 0), reverse=True)
     return rows
@@ -199,6 +203,8 @@ def _write_csv(
         "shares",
         "market_value",
         "weight_pct",
+        "position",
+        "contract_month",
     ]
     with path.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
