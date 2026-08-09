@@ -1,6 +1,6 @@
 [
   {
-    "refreshed_at": "2026-08-09T21:43:20+08:00",
+    "refreshed_at": "2026-08-09T22:06:59+08:00",
     "source_site": "EZMoney",
     "source_route": "ETF/Fund/Info DataAsset",
     "etf_code": "00403A",
@@ -13,12 +13,12 @@
     "weight_sum": 86.11,
     "as_of_datetime": "2026-08-07",
     "edit_datetime": "2026-08-07T16:31:52",
-    "raw_html_path": "data/raw/ezmoney/20260809_214320_63YTW.html",
-    "csv_path": "data/processed/holdings_00403A_63YTW_20260809_214320.csv",
+    "raw_html_path": "data/raw/ezmoney/20260809_220659_63YTW.html",
+    "csv_path": "data/processed/holdings_00403A_63YTW_20260809_220659.csv",
     "error": ""
   },
   {
-    "refreshed_at": "2026-08-09T21:43:20+08:00",
+    "refreshed_at": "2026-08-09T22:06:59+08:00",
     "source_site": "EZMoney",
     "source_route": "ETF/Fund/Info DataAsset",
     "etf_code": "00981A",
@@ -31,12 +31,12 @@
     "weight_sum": 90.76,
     "as_of_datetime": "2026-08-07",
     "edit_datetime": "2026-08-07T17:16:50",
-    "raw_html_path": "data/raw/ezmoney/20260809_214323_49YTW.html",
-    "csv_path": "data/processed/holdings_00981A_49YTW_20260809_214323.csv",
+    "raw_html_path": "data/raw/ezmoney/20260809_220702_49YTW.html",
+    "csv_path": "data/processed/holdings_00981A_49YTW_20260809_220702.csv",
     "error": ""
   },
   {
-    "refreshed_at": "2026-08-09T21:43:20+08:00",
+    "refreshed_at": "2026-08-09T22:06:59+08:00",
     "source_site": "EZMoney",
     "source_route": "ETF/Fund/Info DataAsset",
     "etf_code": "00988A",
@@ -47,10 +47,10 @@
     "status": "ok",
     "row_count": 45,
     "weight_sum": 95.85,
-    "as_of_datetime": "2026-08-07",
+    "as_of_datetime": "2026-08-06",
     "edit_datetime": "2026-08-07T16:33:53",
-    "raw_html_path": "data/raw/ezmoney/20260809_214326_61YTW.html",
-    "csv_path": "data/processed/holdings_00988A_61YTW_20260809_214326.csv",
+    "raw_html_path": "data/raw/ezmoney/20260809_220705_61YTW.html",
+    "csv_path": "data/processed/holdings_00988A_61YTW_20260809_220705.csv",
     "error": ""
   }
 ]

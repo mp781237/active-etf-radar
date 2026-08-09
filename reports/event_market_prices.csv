@@ -139,6 +139,7 @@ CRDO US,2026-07-24,US,USD,213.15,-23.35,-9.8732,Yahoo Finance,https://query1.fin
 CRDO US,2026-08-04,US,USD,237.92,19.57,8.9627,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/CRDO?period1=1785110400&period2=1786060800&interval=1d&events=history,2026-08-06T00:21:39+08:00
 CRWD US,2026-07-30,US,USD,185.22,5.84,3.2557,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/CRWD?period1=1784678400&period2=1785628800&interval=1d&events=history,2026-08-01T22:49:25+08:00
 FORM US,2026-08-05,US,USD,116.74,-3.56,-2.9593,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/FORM?period1=1785196800&period2=1786147200&interval=1d&events=history,2026-08-06T00:21:39+08:00
+FORM US,2026-08-06,US,USD,115.21,0.77,0.6728,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/FORM?period1=1785283200&period2=1786233600&interval=1d&events=history,2026-08-09T22:07:15+08:00
 GE US,2026-07-30,US,USD,355.04,4.41,1.2577,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/GE?period1=1784678400&period2=1785628800&interval=1d&events=history,2026-08-01T22:49:25+08:00
 LITE US,2026-07-23,US,USD,833.64,3.94,0.4749,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/LITE?period1=1784073600&period2=1785024000&interval=1d&events=history,2026-07-26T23:06:18+08:00
 LITE US,2026-07-24,US,USD,762.99,-70.65,-8.4749,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/LITE?period1=1784160000&period2=1785110400&interval=1d&events=history,2026-07-26T23:06:18+08:00
