@@ -1,6 +1,6 @@
 [
   {
-    "refreshed_at": "2026-08-07T20:00:03+08:00",
+    "refreshed_at": "2026-08-09T21:43:20+08:00",
     "source_site": "EZMoney",
     "source_route": "ETF/Fund/Info DataAsset",
     "etf_code": "00403A",
@@ -13,12 +13,12 @@
     "weight_sum": 86.11,
     "as_of_datetime": "2026-08-07",
     "edit_datetime": "2026-08-07T16:31:52",
-    "raw_html_path": "data/raw/ezmoney/20260807_200003_63YTW.html",
-    "csv_path": "data/processed/holdings_00403A_63YTW_20260807_200003.csv",
+    "raw_html_path": "data/raw/ezmoney/20260809_214320_63YTW.html",
+    "csv_path": "data/processed/holdings_00403A_63YTW_20260809_214320.csv",
     "error": ""
   },
   {
-    "refreshed_at": "2026-08-07T20:00:03+08:00",
+    "refreshed_at": "2026-08-09T21:43:20+08:00",
     "source_site": "EZMoney",
     "source_route": "ETF/Fund/Info DataAsset",
     "etf_code": "00981A",
@@ -31,12 +31,12 @@
     "weight_sum": 90.76,
     "as_of_datetime": "2026-08-07",
     "edit_datetime": "2026-08-07T17:16:50",
-    "raw_html_path": "data/raw/ezmoney/20260807_200007_49YTW.html",
-    "csv_path": "data/processed/holdings_00981A_49YTW_20260807_200007.csv",
+    "raw_html_path": "data/raw/ezmoney/20260809_214323_49YTW.html",
+    "csv_path": "data/processed/holdings_00981A_49YTW_20260809_214323.csv",
     "error": ""
   },
   {
-    "refreshed_at": "2026-08-07T20:00:03+08:00",
+    "refreshed_at": "2026-08-09T21:43:20+08:00",
     "source_site": "EZMoney",
     "source_route": "ETF/Fund/Info DataAsset",
     "etf_code": "00988A",
@@ -49,8 +49,8 @@
     "weight_sum": 95.85,
     "as_of_datetime": "2026-08-07",
     "edit_datetime": "2026-08-07T16:33:53",
-    "raw_html_path": "data/raw/ezmoney/20260807_200010_61YTW.html",
-    "csv_path": "data/processed/holdings_00988A_61YTW_20260807_200010.csv",
+    "raw_html_path": "data/raw/ezmoney/20260809_214326_61YTW.html",
+    "csv_path": "data/processed/holdings_00988A_61YTW_20260809_214326.csv",
     "error": ""
   }
 ]
