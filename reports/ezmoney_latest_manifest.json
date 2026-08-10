@@ -1,6 +1,6 @@
 [
   {
-    "refreshed_at": "2026-08-09T22:06:59+08:00",
+    "refreshed_at": "2026-08-10T20:02:11+08:00",
     "source_site": "EZMoney",
     "source_route": "ETF/Fund/Info DataAsset",
     "etf_code": "00403A",
@@ -10,15 +10,15 @@
     "info_url": "https://www.ezmoney.com.tw/ETF/Fund/Info?FundCode=63YTW#asset",
     "status": "ok",
     "row_count": 50,
-    "weight_sum": 86.11,
-    "as_of_datetime": "2026-08-07",
-    "edit_datetime": "2026-08-07T16:31:52",
-    "raw_html_path": "data/raw/ezmoney/20260809_220659_63YTW.html",
-    "csv_path": "data/processed/holdings_00403A_63YTW_20260809_220659.csv",
+    "weight_sum": 86.68,
+    "as_of_datetime": "2026-08-10",
+    "edit_datetime": "2026-08-10T16:51:40",
+    "raw_html_path": "data/raw/ezmoney/20260810_200211_63YTW.html",
+    "csv_path": "data/processed/holdings_00403A_63YTW_20260810_200211.csv",
     "error": ""
   },
   {
-    "refreshed_at": "2026-08-09T22:06:59+08:00",
+    "refreshed_at": "2026-08-10T20:02:11+08:00",
     "source_site": "EZMoney",
     "source_route": "ETF/Fund/Info DataAsset",
     "etf_code": "00981A",
@@ -28,15 +28,15 @@
     "info_url": "https://www.ezmoney.com.tw/ETF/Fund/Info?FundCode=49YTW#asset",
     "status": "ok",
     "row_count": 50,
-    "weight_sum": 90.76,
-    "as_of_datetime": "2026-08-07",
-    "edit_datetime": "2026-08-07T17:16:50",
-    "raw_html_path": "data/raw/ezmoney/20260809_220702_49YTW.html",
-    "csv_path": "data/processed/holdings_00981A_49YTW_20260809_220702.csv",
+    "weight_sum": 91.49,
+    "as_of_datetime": "2026-08-10",
+    "edit_datetime": "2026-08-10T16:31:05",
+    "raw_html_path": "data/raw/ezmoney/20260810_200214_49YTW.html",
+    "csv_path": "data/processed/holdings_00981A_49YTW_20260810_200214.csv",
     "error": ""
   },
   {
-    "refreshed_at": "2026-08-09T22:06:59+08:00",
+    "refreshed_at": "2026-08-10T20:02:11+08:00",
     "source_site": "EZMoney",
     "source_route": "ETF/Fund/Info DataAsset",
     "etf_code": "00988A",
@@ -46,11 +46,11 @@
     "info_url": "https://www.ezmoney.com.tw/ETF/Fund/Info?FundCode=61YTW#asset",
     "status": "ok",
     "row_count": 45,
-    "weight_sum": 95.85,
-    "as_of_datetime": "2026-08-06",
-    "edit_datetime": "2026-08-07T16:33:53",
-    "raw_html_path": "data/raw/ezmoney/20260809_220705_61YTW.html",
-    "csv_path": "data/processed/holdings_00988A_61YTW_20260809_220705.csv",
+    "weight_sum": 95.96,
+    "as_of_datetime": "2026-08-07",
+    "edit_datetime": "2026-08-10T16:30:25",
+    "raw_html_path": "data/raw/ezmoney/20260810_200217_61YTW.html",
+    "csv_path": "data/processed/holdings_00988A_61YTW_20260810_200217.csv",
     "error": ""
   }
 ]
