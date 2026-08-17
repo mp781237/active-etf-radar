@@ -1,0 +1,52 @@
+﻿fetched_at,source,source_url,fund_code,etf_code,query_date,as_of_datetime,edit_datetime,asset_code,stock_code,stock_name,currency,shares,market_value,weight_pct
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,MU US,美光科技公司,,20095,,4.35
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,AMAT US,應用材料,,34577,,3.90
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,MRVL US,Marvell Technology Inc,,77233,,3.82
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,AMD US,ADVANCED MICRO DEVICES,,32722,,3.75
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,LITE US,魯門特姆控股公司,,15408,,3.18
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,GOOGL US,ALPHABET INC-CL A,,38700,,2.98
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,SNDK US,晟碟公司（德拉瓦州）,,7683,,2.81
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,LRCX US,科林研發股份有限公司,,36909,,2.73
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,CRWD US,Crowdstrike控股公司,,55605,,2.69
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,AAPL US,蘋果公司,,39299,,2.68
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,STX US,希捷科技控股公開有限公司,,12253,,2.65
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,4062 JP,揖斐電有限公司,,90748,,2.64
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,TER US,泰瑞達公司,,28213,,2.63
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,009150 KS,三星電機,,10499,,2.57
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,NVDA US,輝達公司,,51076,,2.56
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,FTNT US,防特網公司,,68986,,2.46
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,HWM US,Howmet航太公司,,36048,,2.32
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,AVGO US,博通公司,,26499,,2.32
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,2330,台積電,,132000,,2.20
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,PANW US,Palo Alto Networks Inc,,25679,,2.20
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,WDC US,WESTERN DIGITAL CORP,,18442,,2.09
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,SNOW US,Snowflake公司,,27997,,2.05
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,INTC US,英特爾,,87412,,1.99
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,CIEN US,喜雅納公司,,20397,,1.95
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,DT US,Dynatrace公司,,174101,,1.90
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,GE US,奇異公司,,22986,,1.88
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,RTX US,雷神科技公司,,35894,,1.78
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,2383,台光電,,41000,,1.76
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,ANET US,Arista網路公司,,38588,,1.71
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,3037,欣興,,240000,,1.70
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,2345,智邦,,106000,,1.70
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,META US,Meta平台公司,,12903,,1.69
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,CRDO US,Credo科技集團控股有限公司,,29252,,1.69
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,AMZN US,亞馬遜公司,,27274,,1.59
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,OKTA US,Okta公司,,48433,,1.59
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,APH US,安費諾,,36017,,1.34
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,IOT US,森萬聯有限公司,,133951,,1.19
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,KLAC US,KLA CORP,,26155,,1.19
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,PLTR US,帕蘭提爾科技公司,,27930,,1.08
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,CSCO US,CISCO SYSTEMS INC,,31992,,0.80
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,MSFT US,微軟公司,,7029,,0.78
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,285A JP,鎧俠控股公司,,9282,,0.70
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,COHR US,連貫公司,,9022,,0.65
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,KEYS US,是德科技公司,,8196,,0.65
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,MPWR US,芯源系統有限公司,,1799,,0.56
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,ADBE US,奧多比系統公司,,8282,,0.49
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,GEV US,奇異維諾瓦公司,,2044,,0.48
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,ALAB US,Astera實驗室公司,,6551,,0.47
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,TXN US,德州儀器公司,,4954,,0.31
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,CDNS US,Cadence設計系統公司,,3905,,0.28
+2026-08-17T19:44:30+08:00,capital_buyback,https://www.capitalfund.com.tw/CFWeb/api/etf/buyback,502,00997A,2026-08-17,2026-08-14,,ST,APP US,AppLovin公司,,3145,,0.22
