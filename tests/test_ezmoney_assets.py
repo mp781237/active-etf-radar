@@ -6,9 +6,19 @@ from pathlib import Path
 
 from active_etf_radar.changes import compare_holdings
 from active_etf_radar.sources.ezmoney import _normalize_asset_rows
+from active_etf_radar.streaks import _parse_snapshot_date
 
 
 class EzMoneyAssetTests(unittest.TestCase):
+    def test_snapshot_date_uses_holding_date_not_later_announcement_date(self) -> None:
+        row = {
+            "source": "ezmoney",
+            "as_of_datetime": "2026-09-10",
+            "edit_datetime": "2026-09-11T16:50:24",
+        }
+
+        self.assertEqual(_parse_snapshot_date(row).isoformat(), "2026-09-10")
+
     def test_normalize_asset_rows_keeps_futures_separate_from_stocks(self) -> None:
         assets = [
         {

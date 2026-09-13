@@ -159,10 +159,7 @@ def _read_rows(path: Path) -> list[dict[str, str]]:
 
 
 def _parse_snapshot_date(row: dict[str, str]) -> date:
-    if row.get("source") == "ezmoney" and row.get("edit_datetime"):
-        raw_value = row["edit_datetime"]
-    else:
-        raw_value = row.get("as_of_datetime") or row.get("query_date") or row.get("fetched_at")
+    raw_value = row.get("as_of_datetime") or row.get("query_date") or row.get("fetched_at")
     if not raw_value:
         raise ValueError("持股 CSV 缺少 as_of_datetime/query_date/fetched_at，無法建立時間序列")
 
