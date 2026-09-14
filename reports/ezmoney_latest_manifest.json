@@ -1,6 +1,6 @@
 [
   {
-    "refreshed_at": "2026-09-13T23:43:06+08:00",
+    "refreshed_at": "2026-09-15T00:58:18+08:00",
     "source_site": "EZMoney",
     "source_route": "ETF/Fund/Info DataAsset",
     "etf_code": "00403A",
@@ -10,15 +10,15 @@
     "info_url": "https://www.ezmoney.com.tw/ETF/Fund/Info?FundCode=63YTW#asset",
     "status": "ok",
     "row_count": 50,
-    "weight_sum": 91.96,
-    "as_of_datetime": "2026-09-11",
-    "edit_datetime": "2026-09-11T16:59:23",
-    "raw_html_path": "data/raw/ezmoney/20260913_234306_63YTW.html",
-    "csv_path": "data/processed/holdings_00403A_63YTW_20260913_234306.csv",
+    "weight_sum": 91.8,
+    "as_of_datetime": "2026-09-14",
+    "edit_datetime": "2026-09-14T16:35:26",
+    "raw_html_path": "data/raw/ezmoney/20260915_005818_63YTW.html",
+    "csv_path": "data/processed/holdings_00403A_63YTW_20260915_005818.csv",
     "error": ""
   },
   {
-    "refreshed_at": "2026-09-13T23:43:06+08:00",
+    "refreshed_at": "2026-09-15T00:58:18+08:00",
     "source_site": "EZMoney",
     "source_route": "ETF/Fund/Info DataAsset",
     "etf_code": "00981A",
@@ -28,15 +28,15 @@
     "info_url": "https://www.ezmoney.com.tw/ETF/Fund/Info?FundCode=49YTW#asset",
     "status": "ok",
     "row_count": 50,
-    "weight_sum": 97.11,
-    "as_of_datetime": "2026-09-11",
-    "edit_datetime": "2026-09-11T16:29:21",
-    "raw_html_path": "data/raw/ezmoney/20260913_234309_49YTW.html",
-    "csv_path": "data/processed/holdings_00981A_49YTW_20260913_234309.csv",
+    "weight_sum": 96.93,
+    "as_of_datetime": "2026-09-14",
+    "edit_datetime": "2026-09-14T16:32:45",
+    "raw_html_path": "data/raw/ezmoney/20260915_005822_49YTW.html",
+    "csv_path": "data/processed/holdings_00981A_49YTW_20260915_005822.csv",
     "error": ""
   },
   {
-    "refreshed_at": "2026-09-13T23:43:06+08:00",
+    "refreshed_at": "2026-09-15T00:58:18+08:00",
     "source_site": "EZMoney",
     "source_route": "ETF/Fund/Info DataAsset",
     "etf_code": "00988A",
@@ -47,10 +47,10 @@
     "status": "ok",
     "row_count": 42,
     "weight_sum": 96.09,
-    "as_of_datetime": "2026-09-10",
-    "edit_datetime": "2026-09-11T16:50:24",
-    "raw_html_path": "data/raw/ezmoney/20260913_234311_61YTW.html",
-    "csv_path": "data/processed/holdings_00988A_61YTW_20260913_234311.csv",
+    "as_of_datetime": "2026-09-11",
+    "edit_datetime": "2026-09-14T15:53:16",
+    "raw_html_path": "data/raw/ezmoney/20260915_005825_61YTW.html",
+    "csv_path": "data/processed/holdings_00988A_61YTW_20260915_005825.csv",
     "error": ""
   }
 ]
