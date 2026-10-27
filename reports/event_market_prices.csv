@@ -88,6 +88,7 @@
 2330,2026-10-15,TWSE,TWD,2440.0,-50.0,-2.008,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261015&type=ALLBUT0999&response=json,2026-10-16T23:23:59+08:00
 2330,2026-10-19,TWSE,TWD,2420.0,0.0,0.0,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261019&type=ALLBUT0999&response=json,2026-10-20T01:31:39+08:00
 2330,2026-10-20,TWSE,TWD,2405.0,-15.0,-0.6198,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261020&type=ALLBUT0999&response=json,2026-10-20T23:40:21+08:00
+2330,2026-10-27,TWSE,TWD,2400.0,15.0,0.6289,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261027&type=ALLBUT0999&response=json,2026-10-28T00:43:49+08:00
 2344,2026-08-04,TWSE,TWD,157.0,14.0,9.7902,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260804&type=ALLBUT0999&response=json,2026-08-04T23:42:19+08:00
 2344,2026-08-05,TWSE,TWD,169.0,12.0,7.6433,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260805&type=ALLBUT0999&response=json,2026-08-06T00:21:39+08:00
 2345,2026-07-24,TWSE,TWD,2220.0,-105.0,-4.5161,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260724&type=ALLBUT0999&response=json,2026-07-26T23:06:18+08:00
@@ -135,6 +136,7 @@
 2408,2026-09-17,TWSE,TWD,488.0,-4.5,-0.9137,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260917&type=ALLBUT0999&response=json,2026-09-17T23:34:08+08:00
 2408,2026-09-18,TWSE,TWD,525.0,37.0,7.582,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260918&type=ALLBUT0999&response=json,2026-09-18T23:01:29+08:00
 2408,2026-09-23,TWSE,TWD,515.0,18.0,3.6217,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260923&type=ALLBUT0999&response=json,2026-09-23T23:28:05+08:00
+2408,2026-10-27,TWSE,TWD,441.0,27.0,6.5217,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261027&type=ALLBUT0999&response=json,2026-10-28T00:43:49+08:00
 2412,2026-07-31,TWSE,TWD,139.5,-1.0,-0.7117,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260731&type=ALLBUT0999&response=json,2026-08-01T17:16:55+08:00
 2449,2026-08-31,TWSE,TWD,257.0,-13.0,-4.8148,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260831&type=ALLBUT0999&response=json,2026-09-01T02:01:33+08:00
 2449,2026-09-01,TWSE,TWD,279.0,22.0,8.5603,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260901&type=ALLBUT0999&response=json,2026-09-01T23:28:42+08:00
@@ -175,6 +177,7 @@
 2882,2026-09-02,TWSE,TWD,109.0,-2.0,-1.8018,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260902&type=ALLBUT0999&response=json,2026-09-02T23:08:08+08:00
 2882,2026-09-03,TWSE,TWD,112.5,3.5,3.211,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260903&type=ALLBUT0999&response=json,2026-09-03T23:01:51+08:00
 2883,2026-10-21,TWSE,TWD,38.25,1.0,2.6846,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261021&type=ALLBUT0999&response=json,2026-10-21T23:58:57+08:00
+2883,2026-10-27,TWSE,TWD,38.45,0.7,1.8543,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261027&type=ALLBUT0999&response=json,2026-10-28T00:43:49+08:00
 2884,2026-07-31,TWSE,TWD,38.65,0.95,2.5199,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260731&type=ALLBUT0999&response=json,2026-08-01T17:16:55+08:00
 2885,2026-08-04,TWSE,TWD,69.0,1.0,1.4706,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260804&type=ALLBUT0999&response=json,2026-08-04T23:42:19+08:00
 2886,2026-07-31,TWSE,TWD,53.1,1.6,3.1068,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260731&type=ALLBUT0999&response=json,2026-08-01T17:16:55+08:00
@@ -218,6 +221,7 @@
 3017,2026-10-19,TWSE,TWD,3320.0,5.0,0.1508,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261019&type=ALLBUT0999&response=json,2026-10-20T01:31:39+08:00
 3017,2026-10-20,TWSE,TWD,3325.0,5.0,0.1506,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261020&type=ALLBUT0999&response=json,2026-10-20T23:40:21+08:00
 3017,2026-10-21,TWSE,TWD,3235.0,-90.0,-2.7068,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261021&type=ALLBUT0999&response=json,2026-10-21T23:58:57+08:00
+3017,2026-10-27,TWSE,TWD,3130.0,-15.0,-0.4769,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261027&type=ALLBUT0999&response=json,2026-10-28T00:43:49+08:00
 3026,2026-08-18,TWSE,TWD,668.0,-21.0,-3.0479,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260818&type=ALLBUT0999&response=json,2026-08-18T19:44:14+08:00
 3026,2026-09-24,TWSE,TWD,810.0,42.0,5.4688,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260924&type=ALLBUT0999&response=json,2026-09-24T23:50:23+08:00
 3026,2026-10-14,TWSE,TWD,854.0,48.0,5.9553,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261014&type=ALLBUT0999&response=json,2026-10-14T23:50:52+08:00
@@ -236,6 +240,7 @@
 3037,2026-10-21,TWSE,TWD,1100.0,45.0,4.2654,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261021&type=ALLBUT0999&response=json,2026-10-21T23:58:57+08:00
 3045,2026-07-31,TWSE,TWD,112.5,-1.5,-1.3158,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260731&type=ALLBUT0999&response=json,2026-08-01T17:16:55+08:00
 3045,2026-08-25,TWSE,TWD,115.5,0.5,0.4348,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260825&type=ALLBUT0999&response=json,2026-08-25T19:46:52+08:00
+3045,2026-10-27,TWSE,TWD,134.5,1.5,1.1278,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261027&type=ALLBUT0999&response=json,2026-10-28T00:43:49+08:00
 3081,2026-08-12,TPEX,TWD,2725.0,245.0,9.879,TPEX,https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026%2F08%2F12&id=&response=json,2026-08-12T20:01:20+08:00
 3081,2026-08-13,TPEX,TWD,2665.0,-60.0,-2.2018,TPEX,https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026%2F08%2F13&id=&response=json,2026-08-13T20:02:18+08:00
 3081,2026-08-17,TPEX,TWD,2790.0,250.0,9.8425,TPEX,https://www.tpex.org.tw/www/zh-tw/afterTrading/dailyQuotes?date=2026%2F08%2F17&id=&response=json,2026-08-17T19:44:33+08:00
@@ -315,6 +320,7 @@
 3711,2026-09-09,TWSE,TWD,640.0,22.0,3.5599,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260909&type=ALLBUT0999&response=json,2026-09-09T23:09:05+08:00
 3711,2026-09-11,TWSE,TWD,618.0,-32.0,-4.9231,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260911&type=ALLBUT0999&response=json,2026-09-11T23:03:50+08:00
 3711,2026-10-13,TWSE,TWD,740.0,-22.0,-2.8871,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261013&type=ALLBUT0999&response=json,2026-10-14T02:22:05+08:00
+3711,2026-10-27,TWSE,TWD,651.0,-3.0,-0.4587,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20261027&type=ALLBUT0999&response=json,2026-10-28T00:43:49+08:00
 4062 JP,2026-09-08,JP,JPY,20810.0,-1390.0,-6.2613,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/4062.T?period1=1788134400&period2=1789084800&interval=1d&events=history,2026-09-09T23:09:05+08:00
 4180 JP,2026-08-19,JP,JPY,1274.0,1.0,0.0786,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/4180.T?period1=1786406400&period2=1787356800&interval=1d&events=history,2026-08-20T19:45:55+08:00
 4958,2026-07-24,TWSE,TWD,482.0,-24.0,-4.7431,TWSE,https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260724&type=ALLBUT0999&response=json,2026-07-26T23:06:18+08:00
@@ -479,6 +485,7 @@ CRWD US,2026-09-15,US,USD,242.49,7.11,3.0206,Yahoo Finance,https://query1.financ
 CRWD US,2026-09-16,US,USD,241.36,-1.13,-0.466,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/CRWD?period1=1788825600&period2=1789776000&interval=1d&events=history,2026-09-17T23:34:08+08:00
 CRWD US,2026-10-12,US,USD,263.01,-12.03,-4.3739,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/CRWD?period1=1791072000&period2=1792022400&interval=1d&events=history,2026-10-14T02:22:05+08:00
 CRWD US,2026-10-16,US,USD,227.39,-17.18,-7.0246,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/CRWD?period1=1791417600&period2=1792368000&interval=1d&events=history,2026-10-20T01:31:39+08:00
+CRWD US,2026-10-22,US,USD,237.94,-1.4,-0.5849,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/CRWD?period1=1791936000&period2=1792886400&interval=1d&events=history,2026-10-28T00:43:49+08:00
 DASH US,2026-08-26,US,USD,236.93,3.43,1.4689,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/DASH?period1=1787011200&period2=1787961600&interval=1d&events=history,2026-08-28T05:03:33+08:00
 DDOG US,2026-09-17,US,USD,236.0,5.21,2.2575,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/DDOG?period1=1788912000&period2=1789862400&interval=1d&events=history,2026-09-18T23:01:29+08:00
 DE US,2026-09-03,US,USD,694.41,-3.96,-0.567,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/DE?period1=1787702400&period2=1788652800&interval=1d&events=history,2026-09-04T22:59:32+08:00
@@ -608,3 +615,4 @@ WDC US,2026-08-03,US,USD,519.23,-25.61,-4.7005,Yahoo Finance,https://query1.fina
 WDC US,2026-09-21,US,USD,448.17,6.81,1.543,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/WDC?period1=1789257600&period2=1790208000&interval=1d&events=history,2026-09-22T23:32:22+08:00
 ZS US,2026-10-14,US,USD,220.79,-7.87,-3.4418,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/ZS?period1=1791244800&period2=1792195200&interval=1d&events=history,2026-10-15T23:37:33+08:00
 ZS US,2026-10-21,US,USD,231.33,16.82,7.8411,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/ZS?period1=1791849600&period2=1792800000&interval=1d&events=history,2026-10-22T23:54:30+08:00
+ZS US,2026-10-22,US,USD,237.76,6.43,2.7796,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/ZS?period1=1791936000&period2=1792886400&interval=1d&events=history,2026-10-28T00:43:49+08:00
