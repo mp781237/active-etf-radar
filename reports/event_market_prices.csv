@@ -612,7 +612,9 @@ AMZN US,2026-11-06,US,USD,259.3,-0.91,-0.3497,Yahoo Finance,https://query1.finan
 AMZN US,2026-11-09,US,USD,266.93,7.63,2.9425,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/AMZN?period1=1793491200&period2=1794441600&interval=1d&events=history,2026-11-11T02:42:16+08:00
 AMZN US,2026-11-10,US,USD,270.87,3.94,1.476,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/AMZN?period1=1793577600&period2=1794528000&interval=1d&events=history,2026-11-12T02:43:59+08:00
 AMZN US,2026-11-16,US,USD,257.75,-8.91,-3.3413,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/AMZN?period1=1794096000&period2=1795046400&interval=1d&events=history,2026-11-18T03:54:10+08:00
+AMZN US,2026-11-19,US,USD,257.37,-10.37,-3.8732,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/AMZN?period1=1794355200&period2=1795305600&interval=1d&events=history,2026-11-21T03:08:00+08:00
 ANET US,2026-11-13,US,USD,197.29,-9.34,-4.5202,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/ANET?period1=1793836800&period2=1794787200&interval=1d&events=history,2026-11-17T05:05:05+08:00
+ANET US,2026-11-19,US,USD,189.59,-4.35,-2.243,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/ANET?period1=1794355200&period2=1795305600&interval=1d&events=history,2026-11-21T03:08:00+08:00
 APH US,2026-08-06,US,USD,170.61,-1.63,-0.9464,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/APH?period1=1785283200&period2=1786233600&interval=1d&events=history,2026-08-07T20:00:19+08:00
 APP US,2026-11-17,US,USD,398.94,-16.28,-3.9208,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/APP?period1=1794182400&period2=1795132800&interval=1d&events=history,2026-11-19T03:26:15+08:00
 ARM US,2026-09-17,US,USD,264.9,20.92,8.5745,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/ARM?period1=1788912000&period2=1789862400&interval=1d&events=history,2026-09-18T23:01:29+08:00
@@ -654,6 +656,7 @@ DELL US,2026-09-17,US,USD,588.4,25.11,4.4577,Yahoo Finance,https://query1.financ
 DT US,2026-10-13,US,USD,64.47,-0.78,-1.1954,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/DT?period1=1791158400&period2=1792108800&interval=1d&events=history,2026-10-14T23:50:52+08:00
 FORM US,2026-08-05,US,USD,116.74,-3.56,-2.9593,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/FORM?period1=1785196800&period2=1786147200&interval=1d&events=history,2026-08-06T00:21:39+08:00
 FORM US,2026-08-06,US,USD,115.21,0.77,0.6728,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/FORM?period1=1785283200&period2=1786233600&interval=1d&events=history,2026-08-09T22:07:15+08:00
+FROG US,2026-11-19,US,USD,109.27,-5.11,-4.4676,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/FROG?period1=1794355200&period2=1795305600&interval=1d&events=history,2026-11-21T03:08:00+08:00
 FTNT US,2026-09-17,US,USD,172.58,0.81,0.4716,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/FTNT?period1=1788912000&period2=1789862400&interval=1d&events=history,2026-09-18T23:01:29+08:00
 FTNT US,2026-11-10,US,USD,123.57,1.1,0.8982,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/FTNT?period1=1793577600&period2=1794528000&interval=1d&events=history,2026-11-12T02:43:59+08:00
 GE US,2026-07-30,US,USD,355.04,4.41,1.2577,Yahoo Finance,https://query1.finance.yahoo.com/v8/finance/chart/GE?period1=1784678400&period2=1785628800&interval=1d&events=history,2026-08-01T22:49:25+08:00
